@@ -491,6 +491,12 @@ function Compare-Parameters {
 
 ## MAIN PROGRAM ##
 Write-Host $AsciiBanner
+
+# Create Results directory if it does not already exist
+if (!(Test-Path $DefaultOutputDirectory)) {
+    [void](New-Item -ItemType Directory -Path $DefaultOutputDirectory)
+}
+
 do {
     # Clear script variables
     $Script:TotalPasswordsCracked = 0
